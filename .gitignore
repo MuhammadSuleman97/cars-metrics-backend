@@ -41,6 +41,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
+.env
 
 # Ignore firebase json file in config
 firebase.json
