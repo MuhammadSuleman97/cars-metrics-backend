@@ -20,6 +20,10 @@ clearDirectory(UPLOADS_DIR);
 // Serve static files from the Angular browser directory
 app.use(express.static(path.join(__dirname, 'dist', 'cars-metrics', 'browser')));
 
+// API routes
+app.use('/api', router);
+
+
 // Redirect all other routes to Angular's index.html
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'cars-metrics', 'browser', 'index.html'));
@@ -33,12 +37,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
 
-// API routes
-app.use('/api', router);
 
 // Handle 404 errors
 app.use((req, res, next) => {
